@@ -5,8 +5,8 @@
 		"annotations": [],
 		"type": "AzureBlobStorage",
 		"typeProperties": {
-			"sasUri": "https://blobstorageamr.blob.core.windows.net/",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDYxQ0I1OUMyLUUzQjktNEE3RS05MkNFLTVDMjlBQjY1RUFGN19jN2ZjZWNkNC1jMGY1LTRkOTQtYTNmMy1lYmM1OTIwN2MzOGIiDQp9"
+			"sasUri": "https://blobstorageamr.blob.core.windows.net",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDYxQ0I1OUMyLUUzQjktNEE3RS05MkNFLTVDMjlBQjY1RUFGN18wZDRmNTIyMi02MDhiLTRmY2ItOWNkMi05MmQ2YjRkZDFlM2EiDQp9"
 		}
 	}
 }
