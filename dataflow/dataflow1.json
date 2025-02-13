@@ -47,7 +47,9 @@
 				"     ignoreNoFilesFound: false) ~> readCSV",
 				"readCSV derive(PD_DESC = iifNull(PD_DESC, 'UNKNOWN') ,",
 				"          KY_CD = iifNull(toString([KY_CD]), 'UNKNOWN'),",
-				"          LAW_CAT_CD = ERROR_FUNCTION('')) ~> derivedColumn1"
+				"          LAW_CODE = iifNull(LAW_CODE, 'UNKNOWN') ,",
+				"          PD_CD = iifNull(PD_CD, 'UNKNOWN') ,",
+				"          OFNS_DESC = iifNull(OFNS_DESC, 'UNKNOWN') ) ~> derivedColumn1"
 			]
 		}
 	}
