@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "PARQUET_2_SNOWFLAKE",
+				"name": "CSV_2_SNOWFLAKE",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
