@@ -44,6 +44,7 @@
 					},
 					"sink": {
 						"type": "SnowflakeV2Sink",
+						"preCopyScript": "truncate table CREATE_SCHEMA.NYPD_ARREST_STG",
 						"importSettings": {
 							"type": "SnowflakeImportCopyCommand"
 						}
@@ -65,12 +66,8 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "SnowflakeTable1",
-						"type": "DatasetReference",
-						"parameters": {
-							"Schema_Name": "CREATE_SCHEMA",
-							"Table_Name": "PET_LICENSE_STAGE"
-						}
+						"referenceName": "NYPD_SNOWFLAKE",
+						"type": "DatasetReference"
 					}
 				]
 			}
