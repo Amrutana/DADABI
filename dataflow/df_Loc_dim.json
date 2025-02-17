@@ -68,8 +68,8 @@
 				"          CITY = city,",
 				"          STATE = state_abbr,",
 				"          ZIP_CODE = zipcode,",
-				"          DI_LOAD_DATE,",
-				"          DI_JOB_ID",
+				"          DI_JOB_ID,",
+				"          DI_LOAD_DATE",
 				"     )) ~> sink1"
 			]
 		}
