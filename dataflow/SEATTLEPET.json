@@ -31,7 +31,7 @@
 			],
 			"scriptLines": [
 				"parameters{",
-				"     Job_id as string",
+				"     parameter1 as string (concat('JOB_', toString(currentTimestamp())))",
 				"}",
 				"source(output(",
 				"          License_Issue_Date as string,",
@@ -52,7 +52,8 @@
 				"          License_Number = toString(translate(License_Number, '$', '')),",
 				"          Animals_Name = replace(\"Animal's_Name\", '[]', ''),",
 				"          DL_LOAD_DATE = currentTimestamp(),",
-				"          DL_JOB_ID = concat('JOB_', toString(currentTimestamp()))) ~> derivedColumn1",
+				"          DL_JOB_ID = concat('JOB_', toString(currentTimestamp()))\r",
+				") ~> derivedColumn1",
 				"derivedColumn1 select(mapColumn(",
 				"          License_Issue_Date,",
 				"          License_Number,",
