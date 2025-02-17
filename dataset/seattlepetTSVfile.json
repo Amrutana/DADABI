@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText4",
+	"name": "seattlepetTSVfile",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",

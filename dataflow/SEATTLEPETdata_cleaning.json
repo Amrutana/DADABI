@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText4",
+						"referenceName": "seattlepetTSVfile",
 						"type": "DatasetReference"
 					},
 					"name": "Seattlepet"
@@ -45,15 +45,14 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> Seattlepet",
-				"Seattlepet derive(License_Issue_Date = toDate(License_Issue_Date, 'MMMM dd yyyy'),",
+				"Seattlepet derive(License_Issue_Date = toString(currentDate(), 'yyyy-MM-dd'),",
 				"          Secondary_Breed = iifNull(Secondary_Breed, 'Unknown'),",
 				"          ZIP_Code = lpad(toString(ZIP_Code), 5, '0'),",
 				"          Species = upper(Species),",
 				"          License_Number = toString(translate(License_Number, '$', '')),",
 				"          Animals_Name = replace(\"Animal's_Name\", '[]', ''),",
 				"          DL_LOAD_DT = currentTimestamp(),",
-				"          DL_JOB_ID = concat('Job_Id', toString(currentTimestamp()))\r",
-				") ~> derivedColumn1",
+				"          DL_JOB_ID = concat('Job_Id', toString(currentTimestamp()))) ~> derivedColumn1",
 				"derivedColumn1 select(mapColumn(",
 				"          License_Issue_Date,",
 				"          License_Number,",
