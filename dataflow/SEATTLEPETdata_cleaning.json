@@ -31,7 +31,6 @@
 			],
 			"scriptLines": [
 				"parameters{",
-				"     Job_Id as string,",
 				"     Job_Id as string",
 				"}",
 				"source(output(",
