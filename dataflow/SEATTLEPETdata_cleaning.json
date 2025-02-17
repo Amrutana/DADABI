@@ -1,5 +1,5 @@
 {
-	"name": "SEATTLEPET",
+	"name": "SEATTLEPETdata_cleaning",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
