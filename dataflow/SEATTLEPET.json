@@ -65,8 +65,8 @@
 				"          DL_LOAD_DATE,",
 				"          Job_ID = DL_JOB_ID",
 				"     ),",
-				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> select1",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
 				"select1 sink(allowSchemaDrift: false,",
 				"     validateSchema: false,",
 				"     input(",
@@ -94,8 +94,8 @@
 				"          PRIMARY_BREED = Primary_Breed,",
 				"          SECONDARY_BREED = Secondary_Breed,",
 				"          ZIP_CODE = ZIP_Code,",
-				"          DI_JOB_ID = Job_ID,",
-				"          DI_LOAD_DT = DL_LOAD_DATE",
+				"          DL_JOB_ID = Job_ID,",
+				"          DL_LOAD_DT = DL_LOAD_DATE",
 				"     )) ~> sinkSF"
 			]
 		}
