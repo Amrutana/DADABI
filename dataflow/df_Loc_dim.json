@@ -70,7 +70,7 @@
 				"          CITY = city,",
 				"          STATE = state_abbr,",
 				"          ZIP_CODE = zipcode,",
-				"          STATE = state,",
+				"          STATE_ABBR = state,",
 				"          DI_LOAD_DATE,",
 				"          DI_JOB_ID",
 				"     )) ~> sink1"
