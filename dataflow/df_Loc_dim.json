@@ -44,8 +44,8 @@
 				"sourceGeoFile keyGenerate(output(SK_ID as long),",
 				"     startAt: 1L,",
 				"     stepValue: 1L) ~> surrogateKey1",
-				"surrogateKey1 derive(DL_CREATED_DT = toString(currentDate(), 'yyyy-MM-dd'),",
-				"          DL_JOB_ID = 'DL_' + upper(right(uuid(),7))) ~> derivedColumn1",
+				"surrogateKey1 derive(DI_LOAD_DATE = toString(currentDate(), 'yyyy-MM-dd'),",
+				"          DI_JOB_ID = 'DI_' + upper(right(uuid(),7))) ~> derivedColumn1",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
@@ -68,8 +68,11 @@
 				"     mapColumn(",
 				"          LOCATION_SK = SK_ID,",
 				"          CITY = city,",
-				"          STATE_ABBR = state_abbr,",
-				"          ZIP_CODE = zipcode",
+				"          STATE = state_abbr,",
+				"          ZIP_CODE = zipcode,",
+				"          STATE = state,",
+				"          DI_LOAD_DATE,",
+				"          DI_JOB_ID",
 				"     )) ~> sink1"
 			]
 		}
