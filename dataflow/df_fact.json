@@ -42,6 +42,10 @@
 			],
 			"sinks": [
 				{
+					"dataset": {
+						"referenceName": "Fact_pet",
+						"type": "DatasetReference"
+					},
 					"name": "sink1"
 				}
 			],
@@ -70,7 +74,7 @@
 			],
 			"scriptLines": [
 				"parameters{",
-				"     Job_Id as string",
+				"     Job_Id as string (\"59\")",
 				"}",
 				"source(output(",
 				"          LICENSE_ISSUE_DATE as string,",
@@ -178,10 +182,24 @@
 				"          DL_LOAD_DATE = currentDate()) ~> derivedColumn1",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     input(",
+				"          PET_LIC_SK as string,",
+				"          DATE_SK as string,",
+				"          LOCATION_SK as string,",
+				"          BREED_SK as string,",
+				"          LIC_NUM as string,",
+				"          DI_JOB_ID as string,",
+				"          DI_LOAD_DT_DATE as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     mapColumn(",
-				"          {} = PET_LICSK",
+				"          PET_LIC_SK = PET_LICSK",
 				"     )) ~> sink1"
 			]
 		}
