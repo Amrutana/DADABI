@@ -13,15 +13,13 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
+				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "SEATTLEPET",
+						"referenceName": "SEATTLEPETdata_cleaning",
 						"type": "DataFlowReference",
 						"parameters": {
-							"parameter1": {
-								"value": "'@{substring(pipeline().RunId,1,10)}'",
-								"type": "Expression"
-							}
+							"Job_Id": "\"59\""
 						}
 					},
 					"compute": {
