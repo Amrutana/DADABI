@@ -171,7 +171,7 @@
 				"          LICENSE_NUMBER,",
 				"          LOCATION_SK,",
 				"          BREED_SK,",
-				"          DATE_SK = DT,",
+				"          DATE_SK = DATE_DIM_SK,",
 				"          PET_LIC_MAX",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
