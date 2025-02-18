@@ -199,10 +199,9 @@
 				"     skipDuplicateMapOutputs: true,",
 				"     mapColumn(",
 				"          PET_LIC_SK = PET_LICSK,",
-				"          LIC_NUM = LICENSE_NUMBER,",
 				"          DATE_SK,",
 				"          LOCATION_SK,",
-				"          BREED_SK,",
+				"          LIC_NUM = LICENSE_NUMBER,",
 				"          DI_JOB_ID = DL_JOB_ID,",
 				"          DI_LOAD_DT_DATE = DL_LOAD_DATE",
 				"     )) ~> sink1"
