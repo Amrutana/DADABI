@@ -114,8 +114,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "CREATE_SCHEMA",
-			"table": "NYPD_DATA_ARREST_STG"
+			"schema": "NYPD_SCHEMA",
+			"table": "ARREST_STG"
 		}
 	}
 }
