@@ -247,15 +247,6 @@
 				]
 			}
 		],
-		"parameters": {
-			"DL_JOB_ID": {
-				"type": "Int",
-				"defaultValue": 10
-			},
-			"DL_LOAD_DATE": {
-				"type": "String"
-			}
-		},
 		"annotations": []
 	}
 }
