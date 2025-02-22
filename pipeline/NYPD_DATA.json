@@ -65,7 +65,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "ARREST_KEY"
+									"name": "ARREST_KEY",
+									"type": "String"
 								}
 							},
 							{
@@ -74,7 +75,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "ARREST_DATE"
+									"name": "ARREST_DATE",
+									"type": "String"
 								}
 							},
 							{
@@ -83,7 +85,8 @@
 									"type": "Int64"
 								},
 								"sink": {
-									"name": "PD_CD"
+									"name": "PD_CD",
+									"type": "Int64"
 								}
 							},
 							{
@@ -92,7 +95,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "PD_DESC"
+									"name": "PD_DESC",
+									"type": "String"
 								}
 							},
 							{
@@ -101,7 +105,8 @@
 									"type": "Int64"
 								},
 								"sink": {
-									"name": "KY_CD"
+									"name": "KY_CD",
+									"type": "Int64"
 								}
 							},
 							{
@@ -110,7 +115,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "OFNS_DESC"
+									"name": "OFNS_DESC",
+									"type": "String"
 								}
 							},
 							{
@@ -119,7 +125,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "LAW_CODE"
+									"name": "LAW_CODE",
+									"type": "String"
 								}
 							},
 							{
@@ -128,7 +135,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "LAW_CAT_CD"
+									"name": "LAW_CAT_CD",
+									"type": "String"
 								}
 							},
 							{
@@ -137,7 +145,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "ARREST_BORO"
+									"name": "ARREST_BORO",
+									"type": "String"
 								}
 							},
 							{
@@ -146,7 +155,8 @@
 									"type": "Int64"
 								},
 								"sink": {
-									"name": "ARREST_PRECINCT"
+									"name": "ARREST_PRECINCT",
+									"type": "Int64"
 								}
 							},
 							{
@@ -155,7 +165,8 @@
 									"type": "Int64"
 								},
 								"sink": {
-									"name": "JURISDICTION_CODE"
+									"name": "JURISDICTION_CODE",
+									"type": "Int64"
 								}
 							},
 							{
@@ -164,7 +175,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "AGE_GROUP"
+									"name": "AGE_GROUP",
+									"type": "String"
 								}
 							},
 							{
@@ -173,7 +185,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "PERP_SEX"
+									"name": "PERP_SEX",
+									"type": "String"
 								}
 							},
 							{
@@ -182,7 +195,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "PERP_RACE"
+									"name": "PERP_RACE",
+									"type": "String"
 								}
 							},
 							{
@@ -191,7 +205,8 @@
 									"type": "Double"
 								},
 								"sink": {
-									"name": "X_COORD_CD"
+									"name": "X_COORD_CD",
+									"type": "Double"
 								}
 							},
 							{
@@ -200,7 +215,8 @@
 									"type": "Double"
 								},
 								"sink": {
-									"name": "Y_COORD_CD"
+									"name": "Y_COORD_CD",
+									"type": "Double"
 								}
 							},
 							{
@@ -209,7 +225,8 @@
 									"type": "Double"
 								},
 								"sink": {
-									"name": "LATITUDE"
+									"name": "LATITUDE",
+									"type": "Double"
 								}
 							},
 							{
@@ -218,7 +235,8 @@
 									"type": "Double"
 								},
 								"sink": {
-									"name": "LONGITUDE"
+									"name": "LONGITUDE",
+									"type": "Double"
 								}
 							},
 							{
@@ -227,7 +245,28 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "NEW_GEOREFERENCED"
+									"name": "NEW_GEOREFERENCED",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DL_LOAD_DATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DL_LOAD_DATE",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "DL_JOB_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DL_JOB_ID",
+									"type": "String"
 								}
 							}
 						]
