@@ -51,7 +51,7 @@
 				"          DI_JOB_ID = $JOB_ID) ~> derivedColumn1",
 				"derivedColumn1 foldDown(unrollMultiple(knownForTitles,primaryProfession),",
 				"     mapColumn(",
-				"          KNOWNFORTITLES = knownForTitles,",
+				"          KNOWNFORTITLE = knownForTitles,",
 				"          NCONST = nconst,",
 				"          PRIMARYNAME = primaryName,",
 				"          BIRTHYEAR = birthYear,",
