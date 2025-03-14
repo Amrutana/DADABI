@@ -14,6 +14,10 @@
 			],
 			"sinks": [
 				{
+					"dataset": {
+						"referenceName": "SnowflakeTable2",
+						"type": "DatasetReference"
+					},
 					"name": "sink1"
 				}
 			],
@@ -23,29 +27,54 @@
 				},
 				{
 					"name": "flatten1"
-				},
-				{
-					"name": "flatten2"
 				}
 			],
 			"scriptLines": [
+				"parameters{",
+				"     JOB_ID as string",
+				"}",
 				"source(output(",
-				"          {nconst     primaryName     birthYear     deathYear     primaryProfession     knownForTitles     YearStatus_Flag} as string",
+				"          nconst as string,",
+				"          primaryName as string,",
+				"          birthYear as short,",
+				"          deathYear as short,",
+				"          primaryProfession as string,",
+				"          knownForTitles as string,",
+				"          YearStatus_Flag as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 derive() ~> derivedColumn1",
-				"derivedColumn1 foldDown(unroll(),",
+				"source1 derive(knownForTitles = split(knownForTitles, ','),",
+				"          primaryProfession = split(primaryProfession, ','),",
+				"          DI_LOAD_DATE = currentDate(),",
+				"          DI_JOB_ID = $JOB_ID) ~> derivedColumn1",
+				"derivedColumn1 foldDown(unrollMultiple(knownForTitles,primaryProfession),",
+				"     mapColumn(",
+				"          primaryProfession = primaryProfession",
+				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten1",
-				"flatten1 foldDown(unroll(),",
-				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flatten2",
-				"flatten2 sink(allowSchemaDrift: true,",
+				"flatten1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     input(",
+				"          NCONST as string,",
+				"          PRIMARYNAME as string,",
+				"          BIRTHYEAR as decimal(10,0),",
+				"          DEATHYEAR as decimal(10,0),",
+				"          PRIMARYPROFESSION as string,",
+				"          KNOWNFORTITLE as string,",
+				"          DI_LOAD_DATE as date,",
+				"          DI_JOB_ID as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true,",
+				"     stageInsert: true) ~> sink1"
 			]
 		}
 	}
