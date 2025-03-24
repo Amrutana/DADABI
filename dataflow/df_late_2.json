@@ -53,7 +53,7 @@
 				"parameters{",
 				"     PID as string (\"INFERRED\"),",
 				"     CUSTNAME as string (\"UNKNOWN\"),",
-				"     SALES as string (\"SALES LOADED\")",
+				"     SALES as string (\"SALES LOAD\")",
 				"}",
 				"source(output(",
 				"          INVOICEID as decimal(38,0),",
