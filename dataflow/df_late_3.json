@@ -13,7 +13,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "SNF_DIM_CUSTOMER1",
+						"referenceName": "SNF_CUST",
 						"type": "DatasetReference"
 					},
 					"name": "source2"
@@ -56,13 +56,15 @@
 				"source(output(",
 				"          CUSTOMERID as decimal(38,0),",
 				"          CUSTOMERNAME as string,",
-				"          BILLTO as string",
+				"          BILLTO as string,",
+				"          DI_LOAD_DATE as date,",
+				"          DI_JOB_ID as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'table') ~> source1",
 				"source(output(",
-				"          CUSTOMER_SK as decimal(38,0),",
+				"          CUSTOMER_SK as string,",
 				"          CUSTOMER_ID as decimal(38,0),",
 				"          CUSTOMER_NAME as string,",
 				"          DI_CREATEDDT as timestamp,",
