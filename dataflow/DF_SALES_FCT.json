@@ -29,6 +29,9 @@
 				},
 				{
 					"name": "derivedColumn1"
+				},
+				{
+					"name": "derivedColumn2"
 				}
 			],
 			"scriptLines": [
@@ -73,7 +76,13 @@
 				"          CUSTOMER_ID = CUSTOMERID,",
 				"          CUSTOMER_NAME = $CUSTNAME,",
 				"          DI_CREATEDDT = currentTimestamp(),",
-				"          PID = $PID) ~> derivedColumn1"
+				"          PID = $PID) ~> derivedColumn1",
+				"split1@MATCHING derive(INVOICE_SK = uuid(),",
+				"          INVOICEID = INVOICEID,",
+				"          CUSTOMER_ID = CUSTOMERID,",
+				"          INVOICEID = ERROR_FUNCTION(''),",
+				"          column3 = ERROR_FUNCTION(''),",
+				"          column4 = ERROR_FUNCTION('')) ~> derivedColumn2"
 			]
 		}
 	}
