@@ -13,7 +13,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "SNF_DIM_CUSTOMER1",
+						"referenceName": "SNF_CUST",
 						"type": "DatasetReference"
 					},
 					"name": "source2"
@@ -65,7 +65,9 @@
 				"          SALESPERSONPERSONID as decimal(38,0),",
 				"          SALESPERSONNAME as string,",
 				"          TOTAL_PRODUCT_CNT as decimal(38,0),",
-				"          TOTAL as double",
+				"          TOTAL as double,",
+				"          DI_LOAD_DATE as date,",
+				"          DI_JOB_ID as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
@@ -107,6 +109,8 @@
 				"     updateable:false,",
 				"     upsertable:false,",
 				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
 				"     stageInsert: true,",
 				"     mapColumn(",
 				"          CUSTOMER_SK,",
