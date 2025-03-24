@@ -1,5 +1,5 @@
 {
-	"name": "DF_SALES_FCT",
+	"name": "df_late_2",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -19,7 +19,22 @@
 					"name": "source2"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "SNF_DIM_CUSTOMER1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "SNF_FACT_TABLE",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				}
+			],
 			"transformations": [
 				{
 					"name": "split1"
@@ -37,7 +52,8 @@
 			"scriptLines": [
 				"parameters{",
 				"     PID as string (\"INFERRED\"),",
-				"     CUSTNAME as string (\"UNKNOWN\")",
+				"     CUSTNAME as string (\"UNKNOWN\"),",
+				"     SALES as string (\"SALES LOADED\")",
 				"}",
 				"source(output(",
 				"          INVOICEID as decimal(38,0),",
@@ -64,8 +80,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'table') ~> source2",
-				"join split(isNull([join].CUSTOMER_ID)\r",
-				",",
+				"join split(isNull(CUSTOMER_ID),",
 				"     disjoint: true) ~> split1@(NONMATCHING, MATCHING)",
 				"source1, source2 join(CUSTOMERID == CUSTOMER_ID,",
 				"     joinType:'left',",
@@ -78,11 +93,50 @@
 				"          DI_CREATEDDT = currentTimestamp(),",
 				"          PID = $PID) ~> derivedColumn1",
 				"split1@MATCHING derive(INVOICE_SK = uuid(),",
-				"          INVOICEID = INVOICEID,",
+				"          INVOICE_ID = INVOICEID,",
 				"          CUSTOMER_ID = CUSTOMERID,",
-				"          INVOICEID = ERROR_FUNCTION(''),",
-				"          column3 = ERROR_FUNCTION(''),",
-				"          column4 = ERROR_FUNCTION('')) ~> derivedColumn2"
+				"          INVOICE_DT = INVOICEDATE,",
+				"          TOTAL_PRODUCT_CNT = TOTAL_PRODUCT_CNT,",
+				"          TOTAL_PRODUCT_COST = TOTAL,",
+				"          DI_CREATEDDT = currentTimestamp(),",
+				"          PID = $SALES) ~> derivedColumn2",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          CUSTOMER_SK as decimal(38,0),",
+				"          CUSTOMER_ID as decimal(38,0),",
+				"          CUSTOMER_NAME as string,",
+				"          DI_CREATEDDT as timestamp,",
+				"          PID as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     stageInsert: true) ~> sink1",
+				"derivedColumn2 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          INVOICE_SK as decimal(38,0),",
+				"          INVOICE_ID as decimal(38,0),",
+				"          CUSTOMER_ID as decimal(38,0),",
+				"          INVOICE_DT as date,",
+				"          TOTAL_PRODUCT_CNT as decimal(38,0),",
+				"          TOTAL_PRODUCT_COST as double,",
+				"          DI_CREATEDDT as timestamp,",
+				"          PID as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     stageInsert: true) ~> sink2"
 			]
 		}
 	}
