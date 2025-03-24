@@ -78,7 +78,7 @@
 				"     validateSchema: false,",
 				"     format: 'table') ~> source2",
 				"join1 split(!isNull(CUSTOMER_ID) && PID == 'INFERRED',",
-				"     disjoint: false) ~> split1@(inferredupdate, newinsert)",
+				"     disjoint: true) ~> split1@(inferredupdate, newinsert)",
 				"split1@inferredupdate derive(CUSTOMER_NAME = CUSTOMERNAME,",
 				"          DI_CREATEDDT = currentTimestamp(),",
 				"          PID = $PID) ~> derivedColumn1",
