@@ -59,23 +59,6 @@ Offense type analysis
 Predective Analysis
 
 
-
-
-
-## Project Structure
-
-
-Copy├── data/
-│   ├── raw/                  # Original NYPD arrest dataset
-│   └── processed/            # Cleaned and transformed datasets
-├── alteryx/                  # Alteryx workflows for data cleaning
-├── dimensional_model/        # Documentation of the dimensional model
-├── snowflake/                # SQL scripts for Snowflake setup
-├── azure_data_factory/       # ADF pipeline templates and configs
-├── power_bi/                 # Power BI report files
-└── docs/                     # Project documentation
-
-
 ## Technologies Used
 Data Cleaning: Alteryx
 Data Integration: Azure Data Factory
